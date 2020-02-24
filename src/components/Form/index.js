@@ -16,13 +16,15 @@ class TodoForm extends Component {
 
     handleSubmit = (event) => {
         event.preventDefault()
-        const todo = {
-            id: shortid.generate(),
-            text: this.state.text,
-            complete: false
+        if(this.state.text !== '') {
+            const todo = {
+                id: shortid.generate(),
+                text: this.state.text,
+                complete: false
+            }
+            this.props.onSubmit(todo)
+            this.setState({text: ''})
         }
-        this.props.onSubmit(todo)
-        this.setState({text: ''})
     }
 
     render() {

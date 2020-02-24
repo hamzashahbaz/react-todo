@@ -1,0 +1,13 @@
+.list {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.foot {
+    background-color: #f8f8f8;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 16px 24px;
+    box-sizing: border-box;
+}

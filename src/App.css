@@ -39,10 +39,9 @@
     background-color: #f2f2f2;
 }
 .content {
-  width: 350px;
-  height: 200px;
+  width: 500px;
   background-color: white;
-  padding: 24px 32px;
+  padding: 0px;
 }
 
 .title {
