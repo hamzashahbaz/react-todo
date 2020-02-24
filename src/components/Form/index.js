@@ -34,6 +34,7 @@ class TodoForm extends Component {
                     value={this.state.text}
                     onChange={this.handleChange}
                     placeholder="What needs to be done?"
+                    autoFocus
                 />
             </form>
         )
