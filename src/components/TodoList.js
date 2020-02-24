@@ -1,8 +1,8 @@
-import React from "react";
-import TodoForm from "./TodoForm";
+import React, { Component } from "react";
+import TodoForm from "./Form";
 import Todo from "./TodoItem";
 
-export default class TodoList extends React.Component {
+export default class TodoList extends Component {
   state = {
     todos: [],
     todoToShow: "all",
@@ -63,6 +63,7 @@ export default class TodoList extends React.Component {
     return (
       <div>
         <TodoForm onSubmit={this.addTodo} />
+        <div>
         {todos.map(todo => (
           <Todo
             key={todo.id}
@@ -71,39 +72,34 @@ export default class TodoList extends React.Component {
             todo={todo}
           />
         ))}
-        <div>
-          todos left: {this.state.todos.filter(todo => !todo.complete).length}
         </div>
         <div>
-          <button onClick={() => this.updateTodoToShow("all")}>all</button>
-          <button onClick={() => this.updateTodoToShow("active")}>
-            active
-          </button>
-          <button onClick={() => this.updateTodoToShow("complete")}>
-            complete
-          </button>
-        </div>
-        {this.state.todos.some(todo => todo.complete) ? (
           <div>
-            <button onClick={this.removeAllTodosThatAreComplete}>
-              remove all complete todos
+            todos left: {this.state.todos.filter(todo => !todo.complete).length}
+          </div>
+          <div>
+            <button onClick={() => this.updateTodoToShow("all")}>all</button>
+            <button onClick={() => this.updateTodoToShow("active")}>active</button>
+            <button onClick={() => this.updateTodoToShow("complete")}>complete</button>
+          </div>
+          {this.state.todos.some(todo => todo.complete) && (
+            <button onClick={this.removeAllTodosThatAreComplete}>remove all complete todos</button>
+          )}
+          <div>
+            <button
+              onClick={() =>
+                this.setState(state => ({
+                  todos: state.todos.map(todo => ({
+                    ...todo,
+                    complete: state.toggleAllComplete
+                  })),
+                  toggleAllComplete: !state.toggleAllComplete
+                }))
+              }
+            >
+              toggle all complete: {`${this.state.toggleAllComplete}`}
             </button>
           </div>
-        ) : null}
-        <div>
-          <button
-            onClick={() =>
-              this.setState(state => ({
-                todos: state.todos.map(todo => ({
-                  ...todo,
-                  complete: state.toggleAllComplete
-                })),
-                toggleAllComplete: !state.toggleAllComplete
-              }))
-            }
-          >
-            toggle all complete: {`${this.state.toggleAllComplete}`}
-          </button>
         </div>
       </div>
     );

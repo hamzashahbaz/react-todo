@@ -34,12 +34,20 @@
     width: 100%;
     height: 100vh;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-    background-color: beige;
+    background-color: #f2f2f2;
 }
 .content {
-  width: 200px;
+  width: 350px;
   height: 200px;
   background-color: white;
+  padding: 24px 32px;
+}
+
+.title {
+  text-align: center;
+  font-weight: 200;
+  font-size: 48px;
+  margin-bottom: 20px;
 }
