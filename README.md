@@ -1,4 +1,5 @@
 # Todo List in React
+
 This todo list based on mvc model.
 
 ![Screenshot](screenshot.png)
@@ -9,6 +10,3 @@ This todo list based on mvc model.
 4. Show number of active todos
 5. Filter Todos
 6. Delete Todo
-
-
-Visit: ![url] https://hamzashahbaz.me/how-to-create-todolist-reactjs
